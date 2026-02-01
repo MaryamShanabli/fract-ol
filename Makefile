@@ -1,34 +1,29 @@
 NAME = fractol
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I/usr/include -Iminilibx-linux -O3
-LDFLAGS = -Lminilibx-linux -L/usr/lib
-LIBS = -lmlx_Linux -lXext -lX11 -lm -lz
+CFLAGS = -Wall -Wextra -Werror
+INCLUDES = -Imlx
+LDFLAGS = -Lmlx
+LIBS = -lmlx -framework OpenGL -framework AppKit
 
-SRC = main.c fractal.c events.c utils.c
+SRC = main.c fractal.c utils.c events.c
 OBJ = $(SRC:.c=.o)
 
-MLX_DIR = minilibx-linux
-MLX_LIB = $(MLX_DIR)/libmlx_Linux.a
+MLX_LIB = mlx/libmlx.a
 
 all: $(NAME)
-
-$(MLX_LIB):
-	@make -C $(MLX_DIR)
 
 $(NAME): $(OBJ) $(MLX_LIB)
 	$(CC) $(OBJ) $(LDFLAGS) $(LIBS) -o $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)
-	@make -C $(MLX_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re

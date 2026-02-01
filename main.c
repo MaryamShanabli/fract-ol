@@ -6,7 +6,7 @@
 /*   By: mshanabl <mshanabl@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 17:13:04 by mshanabl          #+#    #+#             */
-/*   Updated: 2026/02/01 18:53:00 by mshanabl         ###   ########.fr       */
+/*   Updated: 2026/02/02 02:02:45 by mshanabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	get_color(int iter, int max_iter)
 	int		b;
 
 	if (iter == max_iter)
-		return (0x00000000);
+		return (0x00000000); //(0x000511) Deep ocean color
 	t = (double)iter / (double)max_iter;
 	r = (int)(9 * (1 - t) * t * t * t * 255);
 	g = (int)(15 * (1 - t) * (1 - t) * t * t * 255);
@@ -37,7 +37,7 @@ int	get_color(int iter, int max_iter)
 	return ((r << 16) | (g << 8) | b);
 }
 
-static void	init_farctal(t_fractal *f, char *type,
+static void	init_fractal(t_fractal *f, char *type,
 	double julia_cx, double julia_cy)
 {
 	f->width = 1000;
@@ -84,9 +84,11 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (print_usage(), 1);
 	if (ft_strcmp(argv[1], "Mandelbrot") == 0)
-		init_farctal(&f, "m", 0.0, 0.0);
+		init_fractal(&f, "m", 0.0, 0.0);
 	else if (ft_strcmp(argv[1], "Julia") == 0 && argc == 4)
-		init_farctal(&f, "j", ft_atof(argv[2]), ft_atof(argv[3]));
+		init_fractal(&f, "j", ft_atof(argv[2]), ft_atof(argv[3]));
+	else if (ft_strcmp(argv[1], "Julia") == 0)
+		init_fractal(&f, "j", 0.35, 0.35);
 	else
 		return (print_usage(), 1);
 	f.mlx = mlx_init();

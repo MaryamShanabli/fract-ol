@@ -6,7 +6,7 @@
 /*   By: mshanabl <mshanabl@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 17:12:56 by mshanabl          #+#    #+#             */
-/*   Updated: 2026/02/01 18:54:38 by mshanabl         ###   ########.fr       */
+/*   Updated: 2026/02/01 19:54:06 by mshanabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static void	render_line(t_fractal *f, int y)
 	while (x < f->width)
 	{
 		real = f->min_real + x * pixel_size;
-		imag = f->min_imag + y * pixel_size;
+		imag = f->max_imag - y * pixel_size;
 		if (ft_strcmp(f->type, "m") == 0)
 			iter = calculate_mandelbrot(real, imag, f->max_iter);
 		else

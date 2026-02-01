@@ -6,17 +6,15 @@
 /*   By: mshanabl <mshanabl@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 17:13:42 by mshanabl          #+#    #+#             */
-/*   Updated: 2026/02/01 18:54:46 by mshanabl         ###   ########.fr       */
+/*   Updated: 2026/02/02 01:58:48 by mshanabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "minilibx-linux/mlx.h"
+# include "minilibx_linux/mlx.h"
 # include <stdlib.h>
-# include <stdio.h>
-# include <string.h>
 # include <unistd.h>
 
 typedef struct s_img
