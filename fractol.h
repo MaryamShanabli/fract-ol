@@ -6,7 +6,7 @@
 /*   By: mshanabl <mshanabl@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 17:13:42 by mshanabl          #+#    #+#             */
-/*   Updated: 2026/02/02 01:58:48 by mshanabl         ###   ########.fr       */
+/*   Updated: 2026/02/02 02:11:48 by mshanabl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ typedef struct s_fractal
 }	t_fractal;
 
 int		get_color(int iter, int max_iter);
-double	map_pixel(int pos, int max_pos, double min_val, double max_val);
 
 void	render_fractal(t_fractal *f);
 int		clean_exit(t_fractal *f);
